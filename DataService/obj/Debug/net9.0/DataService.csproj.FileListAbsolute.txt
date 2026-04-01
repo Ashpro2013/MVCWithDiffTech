@@ -1,0 +1,14 @@
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/bin/Debug/net9.0/DataService.deps.json
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/bin/Debug/net9.0/DataService.runtimeconfig.json
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/bin/Debug/net9.0/DataService.dll
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/bin/Debug/net9.0/DataService.pdb
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.csproj.AssemblyReference.cache
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.AssemblyInfoInputs.cache
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.AssemblyInfo.cs
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.csproj.CoreCompileInputs.cache
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.dll
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/refint/DataService.dll
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.pdb
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.genruntimeconfig.cache
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/ref/DataService.dll

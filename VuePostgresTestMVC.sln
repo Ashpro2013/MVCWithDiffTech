@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuePostgresTestMVC", "VuePostgresTestMVC\VuePostgresTestMVC.csproj", "{48E81D58-2B1E-47E8-9439-B611F913026F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{873B8608-A843-473F-9FF6-821C0FD12393}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{0ED7BDC7-7AE2-4461-8965-D38186ABBA36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ashpro.Library", "Ashpro.Library\Ashpro.Library.csproj", "{7343EC18-DC40-4644-9EF8-2733D371BD53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlpinePostgresMVC", "AlpinePostgresMVC\AlpinePostgresMVC.csproj", "{BDB16AF8-F3BB-4F3B-91C0-0FE29C9C4BDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsPostgresMVC", "AngularJsPostgresMVC\AngularJsPostgresMVC.csproj", "{CF314C00-45A9-4D55-818D-9A585272CD73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockoutPostgresMVC", "KnockoutPostgresMVC\KnockoutPostgresMVC.csproj", "{56BFEB0C-D1D1-40B1-BFF2-330FF119BA6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48E81D58-2B1E-47E8-9439-B611F913026F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E81D58-2B1E-47E8-9439-B611F913026F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E81D58-2B1E-47E8-9439-B611F913026F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E81D58-2B1E-47E8-9439-B611F913026F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{873B8608-A843-473F-9FF6-821C0FD12393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{873B8608-A843-473F-9FF6-821C0FD12393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{873B8608-A843-473F-9FF6-821C0FD12393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{873B8608-A843-473F-9FF6-821C0FD12393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED7BDC7-7AE2-4461-8965-D38186ABBA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED7BDC7-7AE2-4461-8965-D38186ABBA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED7BDC7-7AE2-4461-8965-D38186ABBA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED7BDC7-7AE2-4461-8965-D38186ABBA36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7343EC18-DC40-4644-9EF8-2733D371BD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7343EC18-DC40-4644-9EF8-2733D371BD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7343EC18-DC40-4644-9EF8-2733D371BD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7343EC18-DC40-4644-9EF8-2733D371BD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDB16AF8-F3BB-4F3B-91C0-0FE29C9C4BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDB16AF8-F3BB-4F3B-91C0-0FE29C9C4BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDB16AF8-F3BB-4F3B-91C0-0FE29C9C4BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB16AF8-F3BB-4F3B-91C0-0FE29C9C4BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF314C00-45A9-4D55-818D-9A585272CD73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF314C00-45A9-4D55-818D-9A585272CD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF314C00-45A9-4D55-818D-9A585272CD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF314C00-45A9-4D55-818D-9A585272CD73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56BFEB0C-D1D1-40B1-BFF2-330FF119BA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56BFEB0C-D1D1-40B1-BFF2-330FF119BA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56BFEB0C-D1D1-40B1-BFF2-330FF119BA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56BFEB0C-D1D1-40B1-BFF2-330FF119BA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

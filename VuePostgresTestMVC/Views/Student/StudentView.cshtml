@@ -1,0 +1,156 @@
+@{
+    ViewData["Title"] = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="app">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">{{ form.id === 0 ? "Add" : "Edit" }} Student</h2>
+            </div>
+            <div class="card-body">
+                <form v-on:submit.prevent="save">
+                    <input type="hidden" v-model="form.id" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Name:</label>
+                        <input class="form-control" v-model="form.name" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address:</label>
+                        <input type="text" class="form-control" v-model="form.address" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Age:</label>
+                        <input type="number" class="form-control" v-model.number="form.age" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone:</label>
+                        <input type="text" class="form-control" v-model="form.phone" required />
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" v-on:click="resetForm">Cancel</button>
+                        <button type="button" class="btn btn-danger" v-on:click="remove(form.id)" v-if="form.id > 0">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Student List</h2>
+            </div>
+            <div class="card-body p-0">
+
+                <!-- 🔍 Filter input -->
+                <div class="p-3">
+                    <input type="text" class="form-control" placeholder="Search by name, age, address, or phone..." v-model="searchQuery" />
+                </div>
+
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="student in students" :key="student.id" v-on:click="selectStudent(student)">
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.age }}</td>
+                            <td>{{ student.address }}</td>
+                            <td>{{ student.phone }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                students: [],
+                currentPage: 1,
+                pageSize: 5,
+                searchQuery: "",
+                form: {
+                    id: 0,
+                    name: "",
+                    age: 0,
+                    address: "",
+                    phone: ""
+                }
+            };
+        },
+        
+        methods: {
+            load() {
+                axios.get('/Student/GetAll').then(res => {
+                    this.students = res.data;
+                    console.log(this.students);
+                });
+            },
+            save() {
+
+                if( this.form.id > 0) {
+                    axios.post('/Student/Edit', this.form).then(() => {
+                        this.load();
+                        this.resetForm();
+                    });
+                }
+                else if (this.form.id === 0) {
+                   axios.post('/Student/Create', this.form).then(() => {
+                    this.load();
+                    this.resetForm();
+                }); 
+                }
+                
+            },
+            selectStudent(student) {
+                this.form = { ...student };
+            },
+            remove(id) {
+                if (confirm("Are you sure?")) {
+                    axios.post('/Student/Delete', null, { params: { id } }).then(() => {
+                        this.load();
+                        this.resetForm();
+                    });
+                }
+            },
+            resetForm() {
+                this.form = {
+                    id: 0,
+                    name: "",
+                    age: 0,
+                    address: "",
+                    phone: ""
+                };
+                this.currentPage = 1;
+            }
+        },
+        mounted() {
+            this.load();
+        }
+    });
+
+    app.mount("#app");
+</script>

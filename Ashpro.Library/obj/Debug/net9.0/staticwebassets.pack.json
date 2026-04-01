@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/Ashpro.Library/wwwroot/background.png",
+      "PackagePath": "staticwebassets/background.png"
+    },
+    {
+      "Id": "/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/Ashpro.Library/wwwroot/exampleJsInterop.js",
+      "PackagePath": "staticwebassets/exampleJsInterop.js"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.Ashpro.Library.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.Ashpro.Library.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.Ashpro.Library.props",
+      "PackagePath": "build\\Ashpro.Library.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.Ashpro.Library.props",
+      "PackagePath": "buildMultiTargeting\\Ashpro.Library.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.Ashpro.Library.props",
+      "PackagePath": "buildTransitive\\Ashpro.Library.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
