@@ -12,3 +12,4 @@
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.pdb
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.genruntimeconfig.cache
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/ref/DataService.dll
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/DataService/obj/Debug/net9.0/DataService.sourcelink.json

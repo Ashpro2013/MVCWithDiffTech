@@ -15,9 +15,6 @@
             <EditForm Model="Form" OnValidSubmit="Save">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
-
-               
-
                 <div class="mb-3">
                     <label class="form-label">Name:</label>
                     <InputText class="form-control" @bind-Value="Form.Name" required />
@@ -55,11 +52,7 @@
         <div class="card-header bg-primary text-white">
             <h2 class="mb-0">Student List</h2>
         </div>
-        <div class="card-body p-0">
-
-           
-
-            <table class="table table-hover mb-0">
+        <div class="card-body p-0"><table class="table table-hover mb-0">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
@@ -88,51 +81,4 @@
 
 @code {
     
-
-    // Form model
-    private Student Form { get; set; } = new();
-    List<Student> filteredStudents = new List<Student>();
-
-
-    protected override async Task OnInitializedAsync()
-    {
-        filteredStudents = (await studentrepo.GetAllAsync()).ToList();
-    }
-
-    private async Task Save()
-    {
-        try{
-            if (Form.Id == 0)
-        {
-            await studentrepo.AddAsync(Form); 
-        }
-        else
-        {
-            await studentrepo.UpdateAsync(Form);
-
-        }
-          await ResetForm();
-        }
-        catch(Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-
-    private async Task ResetForm()
-    {
-        Form = new Student();
-         filteredStudents = (await studentrepo.GetAllAsync()).ToList();
-    }
-
-    private async Task Remove(int id)
-    {
-        await studentrepo.DeleteAsync(id);
-       await ResetForm();
-    }
-
-    private void SelectStudent(Student student)
-    {
-        Form = student;
-    }
 }

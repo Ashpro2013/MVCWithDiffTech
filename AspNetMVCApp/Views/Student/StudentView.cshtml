@@ -1,0 +1,212 @@
+@{
+    ViewData["Title"] = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4" id="student-app">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0" id="form-title">Add Student</h2>
+        </div>
+        <div class="card-body">
+            <form id="student-form">
+                <input type="hidden" id="student-id" value="0" />
+
+                <div class="mb-3">
+                    <label class="form-label" for="student-name">Name:</label>
+                    <input class="form-control" id="student-name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="student-address">Address:</label>
+                    <input class="form-control" id="student-address" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="student-age">Age:</label>
+                    <input type="number" class="form-control" id="student-age" min="0" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="student-phone">Phone:</label>
+                    <input class="form-control" id="student-phone" required />
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                    <button type="button" class="btn btn-danger d-none" id="delete-btn">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Student List</h2>
+        </div>
+        <div class="card-body p-0">
+            <div class="p-3">
+                <input type="text" class="form-control" id="search-input" placeholder="Search by name, age, address, or phone..." />
+            </div>
+
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                </tr>
+                </thead>
+                <tbody id="students-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    (function () {
+        const students = [];
+
+        const form = document.getElementById('student-form');
+        const formTitle = document.getElementById('form-title');
+        const idInput = document.getElementById('student-id');
+        const nameInput = document.getElementById('student-name');
+        const addressInput = document.getElementById('student-address');
+        const ageInput = document.getElementById('student-age');
+        const phoneInput = document.getElementById('student-phone');
+        const deleteBtn = document.getElementById('delete-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const searchInput = document.getElementById('search-input');
+        const tbody = document.getElementById('students-tbody');
+
+        function getFormData() {
+            return {
+                id: Number(idInput.value),
+                name: nameInput.value.trim(),
+                address: addressInput.value.trim(),
+                age: Number(ageInput.value),
+                phone: phoneInput.value.trim()
+            };
+        }
+
+        function setFormData(student) {
+            idInput.value = student.id;
+            nameInput.value = student.name || '';
+            addressInput.value = student.address || '';
+            ageInput.value = student.age || 0;
+            phoneInput.value = student.phone || '';
+
+            const isEdit = Number(student.id) > 0;
+            formTitle.textContent = isEdit ? 'Edit Student' : 'Add Student';
+            deleteBtn.classList.toggle('d-none', !isEdit);
+        }
+
+        function resetForm() {
+            setFormData({ id: 0, name: '', address: '', age: 0, phone: '' });
+        }
+
+        function filteredStudents() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) {
+                return students;
+            }
+
+            return students.filter(function (s) {
+                return String(s.id).includes(query)
+                    || (s.name || '').toLowerCase().includes(query)
+                    || String(s.age).includes(query)
+                    || (s.address || '').toLowerCase().includes(query)
+                    || (s.phone || '').toLowerCase().includes(query);
+            });
+        }
+
+        function renderStudents() {
+            const rows = filteredStudents().map(function (student) {
+                return '<tr data-id="' + student.id + '">'
+                    + '<td>' + student.id + '</td>'
+                    + '<td>' + (student.name || '') + '</td>'
+                    + '<td>' + student.age + '</td>'
+                    + '<td>' + (student.address || '') + '</td>'
+                    + '<td>' + (student.phone || '') + '</td>'
+                    + '</tr>';
+            }).join('');
+
+            tbody.innerHTML = rows;
+        }
+
+        async function loadStudents() {
+            const response = await fetch('/Student/GetAll');
+            if (!response.ok) {
+                alert('Failed to load students.');
+                return;
+            }
+
+            const data = await response.json();
+            students.splice(0, students.length, ...data);
+            renderStudents();
+        }
+
+        async function saveStudent(event) {
+            event.preventDefault();
+            const student = getFormData();
+            const url = student.id > 0 ? '/Student/Edit' : '/Student/Create';
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(student)
+            });
+
+            if (!response.ok) {
+                alert('Failed to save student.');
+                return;
+            }
+
+            await loadStudents();
+            resetForm();
+        }
+
+        async function deleteStudent() {
+            const id = Number(idInput.value);
+            if (id <= 0 || !confirm('Are you sure?')) {
+                return;
+            }
+
+            const response = await fetch('/Student/Delete?id=' + id, { method: 'POST' });
+            if (!response.ok) {
+                alert('Failed to delete student.');
+                return;
+            }
+
+            await loadStudents();
+            resetForm();
+        }
+
+        tbody.addEventListener('click', function (event) {
+            const row = event.target.closest('tr[data-id]');
+            if (!row) {
+                return;
+            }
+
+            const id = Number(row.getAttribute('data-id'));
+            const student = students.find(function (s) { return s.id === id; });
+            if (student) {
+                setFormData(student);
+            }
+        });
+
+        form.addEventListener('submit', saveStudent);
+        deleteBtn.addEventListener('click', deleteStudent);
+        cancelBtn.addEventListener('click', resetForm);
+        searchInput.addEventListener('input', renderStudents);
+
+        resetForm();
+        loadStudents();
+    })();
+</script>
+}
+

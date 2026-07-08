@@ -360,3 +360,4 @@
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/BlazorApp1/bin/Debug/net9.0/Ashpro.Library.dll
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/BlazorApp1/bin/Debug/net9.0/Ashpro.Library.pdb
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/BlazorApp1/obj/Debug/net9.0/compressed/ysu4imbah3-cdwwge0x8m.gz
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/BlazorApp1/obj/Debug/net9.0/BlazorApp1.sourcelink.json

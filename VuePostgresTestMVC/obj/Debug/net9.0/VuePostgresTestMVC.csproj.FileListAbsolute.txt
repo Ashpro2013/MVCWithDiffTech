@@ -191,3 +191,4 @@
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/VuePostgresTestMVC/obj/Debug/net9.0/VuePostg.5DF92AB2.Up2Date
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/VuePostgresTestMVC/bin/Debug/net9.0/DataService.dll
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/VuePostgresTestMVC/bin/Debug/net9.0/DataService.pdb
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/VuePostgresTestMVC/obj/Debug/net9.0/VuePostgresTestMVC.sourcelink.json

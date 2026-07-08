@@ -24,3 +24,4 @@
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/Ashpro.Library/obj/Debug/net9.0/refint/Ashpro.Library.dll
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/Ashpro.Library/obj/Debug/net9.0/Ashpro.Library.pdb
 /Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/Ashpro.Library/obj/Debug/net9.0/ref/Ashpro.Library.dll
+/Users/mohammedashraf/Experiment/MVC/VuePostgresTestMVC/Ashpro.Library/obj/Debug/net9.0/Ashpro.Library.sourcelink.json
