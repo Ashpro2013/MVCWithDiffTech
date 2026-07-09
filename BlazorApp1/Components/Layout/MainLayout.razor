@@ -1,15 +1,19 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu/>
+    <header>
+        <NavMenu />
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3 content">
+            @Body
+        </main>
     </div>
 
-    <main>
-       
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - BlazorApp1 - <a href="/privacy">Privacy</a>
+        </div>
+    </footer>
 </div>

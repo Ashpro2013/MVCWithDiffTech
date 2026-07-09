@@ -1,0 +1,85 @@
+@page "/student"
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+<PageTitle>Student</PageTitle>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">@((Form.Id == 0 ? "Add" : "Edit") + " Student")</h2>
+        </div>
+        <div class="card-body">
+            <EditForm Model="Form" OnValidSubmit="Save">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <div class="mb-3">
+                    <label class="form-label">Name:</label>
+                    <InputText class="form-control" @bind-Value="Form.Name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Address:</label>
+                    <InputText class="form-control" @bind-Value="Form.Address" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Age:</label>
+                    <InputNumber class="form-control" @bind-Value="Form.Age" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Phone:</label>
+                    <InputText class="form-control" @bind-Value="Form.Phone" required />
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" @onclick="ResetForm">Cancel</button>
+                    @if (Form.Id > 0)
+                    {
+                        <button type="button" class="btn btn-danger" @onclick="() => Remove(Form.Id)">Delete</button>
+                    }
+                </div>
+            </EditForm>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Student List</h2>
+        </div>
+        <div class="card-body p-0">
+            <div class="p-3">
+                <input class="form-control"
+                       @bind="SearchQuery"
+                       @bind:event="oninput"
+                       placeholder="Search by name, age, address, or phone..." />
+            </div>
+
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in FilteredStudents)
+                    {
+                        <tr @onclick="() => SelectStudent(student)" style="cursor:pointer">
+                            <td>@student.Id</td>
+                            <td>@student.Name</td>
+                            <td>@student.Age</td>
+                            <td>@student.Address</td>
+                            <td>@student.Phone</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
