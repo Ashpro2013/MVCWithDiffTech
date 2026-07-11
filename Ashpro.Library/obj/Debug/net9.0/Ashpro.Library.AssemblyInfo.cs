@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ashpro.Library")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df5b8aeb18fdfa168d2c6015ca282024ad07aa47")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b51eca87d4f9f6d7fa523b002229bb329450e14")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ashpro.Library")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ashpro.Library")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
