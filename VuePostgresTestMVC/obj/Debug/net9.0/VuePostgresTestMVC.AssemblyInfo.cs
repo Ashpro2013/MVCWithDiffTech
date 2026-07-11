@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VuePostgresTestMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4c580671b0c1d97b3ae5b104e3c53d870b44cb1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df5b8aeb18fdfa168d2c6015ca282024ad07aa47")]
 [assembly: System.Reflection.AssemblyProductAttribute("VuePostgresTestMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VuePostgresTestMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
