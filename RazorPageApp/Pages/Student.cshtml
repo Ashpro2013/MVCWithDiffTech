@@ -1,0 +1,106 @@
+@page
+@model RazorPageApp.Pages.StudentModel
+@{
+    ViewData["Title"] = "Student";
+}
+
+<div class="container mt-4">
+    <!-- Form Card -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">@((Model.Form.Id == 0 ? "Add" : "Edit") + " Student")</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-page-handler="Save">
+                <input type="hidden" asp-for="Form.Id" />
+                <input type="hidden" asp-for="SearchQuery" />
+
+                <div class="mb-3">
+                    <label class="form-label">Name:</label>
+                    <input class="form-control" asp-for="Form.Name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Address:</label>
+                    <input class="form-control" asp-for="Form.Address" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Age:</label>
+                    <input type="number" class="form-control" asp-for="Form.Age" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Phone:</label>
+                    <input class="form-control" asp-for="Form.Phone" required />
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-secondary" asp-page-handler="Cancel" formnovalidate>Cancel</button>
+                    @if (Model.Form.Id > 0)
+                    {
+                        <button type="submit" 
+                                class="btn btn-danger" 
+                                asp-page-handler="Delete" 
+                                asp-route-id="@Model.Form.Id" 
+                                onclick="return confirm('Are you sure?')" 
+                                formnovalidate>Delete</button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- List Card -->
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Student List</h2>
+        </div>
+        <div class="card-body p-0">
+            <!-- 🔍 Filter input -->
+            <form method="get">
+                <input type="hidden" name="id" value="@Model.Form.Id" />
+                <div class="p-3 d-flex gap-2">
+                    <input class="form-control"
+                           asp-for="SearchQuery"
+                           placeholder="Search by name, age, address, or phone..." />
+                    <button type="submit" class="btn btn-outline-primary">Search</button>
+                </div>
+            </form>
+
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Students == null || !Model.Students.Any())
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-3">No students found.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var student in Model.Students)
+                        {
+                            <tr onclick="location.href='?id=@student.Id&SearchQuery=@Uri.EscapeDataString(Model.SearchQuery)'" style="cursor:pointer">
+                                <td>@student.Id</td>
+                                <td>@student.Name</td>
+                                <td>@student.Age</td>
+                                <td>@student.Address</td>
+                                <td>@student.Phone</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
