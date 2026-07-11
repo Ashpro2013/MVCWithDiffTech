@@ -1,0 +1,39 @@
+## Ignore Visual Studio & Rider tooling files
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+*~
+
+## Ignore build and output directories
+[Bb]in/
+[Oo]bj/
+[Pp]ublish/
+[Rr]elease/
+x64/
+x86/
+[Aa]rchive/
+
+## Ignore user secrets and environment configuration
+appsettings.local.json
+.env
+.env.*
+!.env.example
+*.local
+
+## Ignore OS metadata
+.DS_Store
+Thumbs.db
+
+## Ignore crash dumps
+*.dmp
+*.stackdump
+
+## Ignore package manager caches
+.nuget/
+*.nuget.props
+*.nuget.targets

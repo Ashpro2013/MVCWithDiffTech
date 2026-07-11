@@ -90,7 +90,7 @@
                     {
                         @foreach (var student in Model.Students)
                         {
-                            <tr onclick="location.href='?id=@student.Id&SearchQuery=@Uri.EscapeDataString(Model.SearchQuery)'" style="cursor:pointer">
+                            <tr onclick="location.href='?id=@student.Id&SearchQuery=@Uri.EscapeDataString(Model.SearchQuery ?? string.Empty)'" style="cursor:pointer">
                                 <td>@student.Id</td>
                                 <td>@student.Name</td>
                                 <td>@student.Age</td>
