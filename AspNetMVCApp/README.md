@@ -6,7 +6,7 @@ ASP.NET Core MVC app with the same student CRUD functionality as `VuePostgresTes
 
 - ASP.NET Core MVC (`net9.0`)
 - `DataService` project reference for models, DbContext, and repository
-- PostgreSQL connection via `Npgsql.EntityFrameworkCore.PostgreSQL`
+- SQLite connection via `Microsoft.EntityFrameworkCore.Sqlite`
 
 ## Implemented Features
 

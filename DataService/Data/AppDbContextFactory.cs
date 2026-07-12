@@ -11,9 +11,9 @@ namespace DataService.Data
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
             // ✅ Replace with your actual connection string
-            var connectionString = "Host=localhost;Port=5710;Database=AshproDB;Username=postgres;Password=571100";
+            var connectionString = "Data Source=../AshproDB.db";
 
-            optionsBuilder.UseNpgsql(connectionString);
+            optionsBuilder.UseSqlite(connectionString);
 
             return new AppDbContext(optionsBuilder.Options);
         }

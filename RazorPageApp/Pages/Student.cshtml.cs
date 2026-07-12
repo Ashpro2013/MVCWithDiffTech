@@ -66,8 +66,5 @@ public class StudentModel(IStudentRepo _studentRepo) : PageModel
         return RedirectToPage(new { searchQuery = SearchQuery });
     }
 
-    public IActionResult OnPostCancel()
-    {
-        return RedirectToPage(new { searchQuery = SearchQuery });
-    }
+    public IActionResult OnPostCancel() => RedirectToPage(new { searchQuery = SearchQuery });
 }
